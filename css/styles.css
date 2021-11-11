@@ -1,0 +1,36 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+body {
+    background-color: darkcyan;
+    overflow-x: hidden;
+}
+
+.header {
+    background-color: rgb(0, 124, 124);
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.header_toolbar {
+    padding-left: 10px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.body_content {
+    height: 550px;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background: white;
+}
+
+.header_slogan {
+    font-weight: bold;
+    padding-top: 10px;
+}
