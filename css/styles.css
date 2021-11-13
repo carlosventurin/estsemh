@@ -7,7 +7,7 @@ body {
 }
 
 body {
-    background-color: darkcyan;
+    background-color: #DDDDDD;
     overflow-x: hidden;
 }
 
@@ -17,9 +17,16 @@ body {
 }
 
 .header_toolbar {
-    padding-left: 10px;
     text-decoration: none;
+    height: auto;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.header_content {
+    
+    background-color: rgb(0, 124, 124);
+    /* box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12); */
+    text-align: center;
 }
 
 ul {
@@ -40,13 +47,9 @@ li a {
     text-decoration: none;
 }
 
+
 li:hover {
     background-color: rgb(0, 200, 200);
-}
-
-.header_content {
-    justify-content: center;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
 .body_content {
@@ -61,4 +64,8 @@ li:hover {
 .header_slogan {
     font-weight: bold;
     padding-top: 10px;
+}
+
+article {
+    background-color: #FFFFFF;
 }
