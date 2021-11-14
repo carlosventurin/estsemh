@@ -8,10 +8,11 @@ input {
     margin-bottom: 5px;
 }
 
-#div_cadast {
-    text-align: center;
-    margin-top: 20px;
+article {
+    width: fit-content;
+    background-color: white;
 }
+
 
 #botao {
     margin-top: 15px;
