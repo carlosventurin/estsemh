@@ -1,0 +1,14 @@
+label {
+    display: inline-block;
+    width: 200px;
+}
+
+input {
+    width: 250px;
+    margin-bottom: 5px;
+}
+
+#div_cadast {
+    text-align: center;
+    margin-top: 20px;
+}
