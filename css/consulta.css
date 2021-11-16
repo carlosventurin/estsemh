@@ -1,0 +1,12 @@
+/*Modifica o tamanho da fonte e a largura dos campos de cabeçalho da tabela*/
+th {
+    font-size: large;
+    width: 300px;
+}
+
+/*Modifica o tamanho, tipo, cor e curvatura da borda e o alinhamento do texto nos campos de conteúdo da tabela*/
+td {
+    border: 3px solid rgb(0, 124, 124);
+    text-align: center;
+    border-radius: 5px;
+}
