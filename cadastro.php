@@ -11,37 +11,9 @@
 </head>
 
 <body>
-    <!-- Criação do cabeçalho da página -->
-    <div class="header">
-        <nav class="header_toolbar">
-            <ul>
-                <li>
-                    <a href="index.html"><img src="imagem/logo.png" width="50px"></a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-                <li>
-                    <a href="consulta.html">Consulta</a>
-                </li>
-                <li>
-                    <a href="sair.html">Sair</a>
-                </li>
-                <li>
-                    <a href="sobre.html">Sobre</a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="header_content">
-            <figure>
-                <img src="imagem/logo.png">
-            </figure>
-            <div class="header_slogan">Estórias sem H</div>
-        </div>
-    </div>
-
     <!-- Formulário para cadastrar usuários -->
+    <?php include "header.php"; ?>
+    
     <article>
         <div>
             <h1>Cadastro</h1>
