@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estórias sem H - Cadastro</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="css/cadastro.css" />
 </head>
 
 <body>
@@ -16,7 +15,7 @@
         <nav class="header_toolbar">
             <ul>
                 <li>
-                    <a href="index.html"><img src="imagem/logo.png" width="50px"></a>
+                    <a href="index.html"><img src="imagem/logo.png" class="logo"></a>
                 </li>
                 <li>
                     <a href="cadastro.html">Cadastro</a>
@@ -42,24 +41,24 @@
     </div>
 
     <!-- Formulário para cadastrar usuários -->
-    <article>
+    <article id="inicad">
         <div>
             <h1>Cadastro</h1>
             <hr>
             <form>
-                <label for="username">Usuário:</label>
-                <input type="text" name="username">
+                <label for="username" class="tabelacad">Usuário:</label>
+                <input type="text" name="username" class="cadentr">
                 <br>
-                <label for="email">Email:</label>
-                <input type="text" name="email">
+                <label for="email" class="tabelacad">Email:</label>
+                <input type="text" name="email" class="cadentr">
                 <br>
-                <label for="password">Senha:</label>
-                <input type="text" name="password">
+                <label for="password" class="tabelacad">Senha:</label>
+                <input type="text" name="password" class="cadentr">
                 <br>
-                <label for="rpassword">Repita a Senha:</label>
-                <input type="text" name="rpassword">
+                <label for="rpassword" class="tabelacad">Repita a Senha:</label>
+                <input type="text" name="rpassword" class="cadentr">
                 <br>
-                <input type="submit" value="Cadastrar" id="botao">
+                <input type="submit" value="Cadastrar" id="botao" class="cadentr">
             </form>
         </div>
     </article>
