@@ -8,6 +8,11 @@
     <title>Estórias sem H - Home</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -15,7 +20,7 @@
         <nav class="header_toolbar">
             <ul>
                 <li>
-                    <a href="index.php"><img src="imagem/logo.png" alt="Home" width="50px"></a>
+                    <a href="index.php"><img src="imagem/logo.png" class="logo" alt="Home"></a>
                 </li>
                 <li>
                     <a href="cadastro.php">Cadastro</a>
@@ -31,11 +36,4 @@
                 </li>
             </ul>
         </nav>
-
-        <div class="header_content">
-            <figure>
-                <img src="imagem/logo.png">
-            </figure>
-            <div class="header_slogan">Estórias sem H</div>
-        </div>
     </div>
