@@ -1,8 +1,7 @@
 <?php include_once "header.php"; ?>
-<article>
-    <div>
+<article class="row">
+    <div class="col s12 m6 push-m3 z-depth-5">
         <h1>Cadastro</h1>
-        <hr>
         <form>
             <label for="username">Usuário:</label>
             <input type="text" name="username">
@@ -16,7 +15,7 @@
             <label for="rpassword">Repita a Senha:</label>
             <input type="text" name="rpassword">
             <br>
-            <input type="submit" value="Cadastrar" id="botao">
+            <input type="submit" value="Cadastrar" id="botao" class="waves-effect waves-light btn">
         </form>
     </div>
 </article>

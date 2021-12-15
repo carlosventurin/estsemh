@@ -22,29 +22,31 @@ echo $dadoasds['nomUsuario'];
 ?>
 
 <!-- Prévia da história criada por um usuário -->
-<article>
-    <?php
-    $sql="SELECT * FROM historia";
-    $resultado= mysqli_query($connect,$sql);
-    
-    if (mysqli_num_rows($resultado)>0):
-        while($dados =mysqli_fetch_array($resultado)):	
-            ?>
-            <div class="historia-preview">
-                <header class="title">
-                    <?php echo $dados['nomHist'];?> | <?php 
-                    $sql="SELECT * FROM usuario WHERE idUsuario = " . $dados['idUsuario'] . ";";
-                    $resultadoUsuario = mysqli_query($connect,$sql);
-                    $usuario =mysqli_fetch_array($resultadoUsuario);
-                    echo $usuario['nomUsuario'];
-                    ?>
-                </header>
-                <hr>
-                <?php echo $dados['dscSinopseHist'];?>
-            </div>
-        <?php endwhile; 
-    endif;
-    ?>
+<article class="row">
+    <div class="col s12 m6 push-m3 z-depth-5">
+        <?php
+        $sql="SELECT * FROM historia";
+        $resultado= mysqli_query($connect,$sql);
+        
+        if (mysqli_num_rows($resultado)>0):
+            while($dados =mysqli_fetch_array($resultado)):	
+                ?>
+                <div class="historia-preview">
+                    <header class="title">
+                        <?php echo $dados['nomHist'];?> | <?php 
+                        $sql="SELECT * FROM usuario WHERE idUsuario = " . $dados['idUsuario'] . ";";
+                        $resultadoUsuario = mysqli_query($connect,$sql);
+                        $usuario =mysqli_fetch_array($resultadoUsuario);
+                        echo $usuario['nomUsuario'];
+                        ?>
+                    </header>
+                    <hr>
+                    <?php echo $dados['dscSinopseHist'];?>
+                </div>
+            <?php endwhile; 
+        endif;
+        ?>
+    </div>
 </article>
 
 <?php 

@@ -1,98 +1,16 @@
-/*Define a fonte, margem, preenchimento e tamanho da fonte na página*/
-html,
-body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: medium;
-}
-
-/*Remove a barra de navegação lateral e define a cor de fundo do corpo*/
-body {
-    background-color: #FFFFFF;
-    overflow-x: hidden;
-}
-
-/*Altera a cor de fundo e as sombras da classe "header"*/
-.header {
-    background-color: rgb(0, 124, 124);
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-}
-
-/*Altera a sobra da classe "header_content"*/
-.header_toolbar {
-    text-decoration: none;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-}
-
-/*Altera o alinhamento e a cor de fundo da classe "header_content"*/
-.header_content {
-    background-color: rgb(0, 124, 124);
-    /* box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12); */
-    text-align: center;
-}
-
-/*Altera a exibição dos dados da lista*/
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-/*Altera a exibição dos dados da lista*/
-li {
-    display: inline;
-    font-weight: bold;
-    position: relative;
-    font-size: 150%;
-}
-
-/*ALtera as propriedades dos links na lista*/
-li a {
-    color: white;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-}
-
-/*Altera a cor da lista quando o cursor é passado sobre ela*/
-li:hover {
-    background-color: rgb(0, 200, 200);
-}
-
-/*Altera a largura, altura, preenchimento, disposição, plano de fundo e alinhamento da classe "body-content"*/
-.body_content {
-    height: 550px;
-    width: 100%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background: white;
-}
-
-/*Modifica a largura e o preenchimento da classe "header-slogan"*/
-.header_slogan {
-    font-weight: bold;
-    padding-top: 10px;
-}
-
-/*Define a largura, margem, preenchimento, cor de fundo e sombras dos artigos*/
-article {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    padding: 10px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-}
-
-/*Alinha o cabeçalho no centro*/
-h1 {
-    text-align: center;
-}
-
 .logo {
     width: 50px;
+}
+
+footer {
+    position:absolute;
+    bottom: 0px;
+}
+
+div {
+    border-radius: 10px;
+}
+
+#menus {
+    border-radius: 0px;
 }

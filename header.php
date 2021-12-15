@@ -7,33 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estórias sem H - Home</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-
-    <!-- Compiled and minified CSS -->
+    <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
-    <div class="header">
-        <nav class="header_toolbar">
-            <ul>
+    <nav>
+        <div class="nav-wrapper light-green lighten-3" id="menus">
+            <a href="index.php" class="brand-logo"><img src="imagem/logo.png" class="logo" alt="Home"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
-                    <a href="index.php"><img src="imagem/logo.png" class="logo" alt="Home"></a>
+                    <a href="cadastro.php" class="black-text">Cadastro</a>
                 </li>
                 <li>
-                    <a href="cadastro.php">Cadastro</a>
+                    <a href="consulta.php" class="black-text">Consulta</a>
                 </li>
                 <li>
-                    <a href="consulta.php">Consulta</a>
+                    <a href="login.php" class="black-text">Sair</a>
                 </li>
                 <li>
-                    <a href="sair.php">Sair</a>
-                </li>
-                <li>
-                    <a href="sobre.php">Sobre</a>
+                    <a href="sobre.php" class="black-text">Sobre</a>
                 </li>
             </ul>
-        </nav>
-    </div>
+        </div>
+    </nav>
+    <br>

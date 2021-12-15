@@ -44,12 +44,16 @@ if(!empty($erros)):
 	endforeach;
 endif;
 ?>
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-
-Login: <input type="text" name="login"><br>
-Senha: <input type="password" name="senha"><br>
-<button type="submit" name="btn-entrar"> Entrar </button>
-</form>
+<div class="row">
+	<div class="col s12 m6 push-m3 z-depth-5">
+		<h1>Login</h1>
+		<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+			Login: <input type="text" name="login"><br>
+			Senha: <input type="password" name="senha"><br>
+			<button type="submit" name="btn-entrar" class="waves-effect waves-light btn"> Entrar </button>
+		</form>
+	</div>
+</div>
 
 <?php 
 include_once "footer.php";
