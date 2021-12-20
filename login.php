@@ -20,7 +20,7 @@ if (isset($_POST['btn-entrar'])) {
 		'header' => "Authorization: Basic " . base64_encode("$login:$senha")                 
 		)
 	);
-  
+	
   	$context = stream_context_create($opts);
 
 	$resultado = (array)json_decode(file_get_contents($url, false, $context));
