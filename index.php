@@ -1,6 +1,5 @@
 <?php 
 include_once "header.php";
-include_once 'dbconnect.php';
 
 session_start();
 
@@ -9,15 +8,11 @@ if (!isset($_SESSION['logado'])):
 	header('Location: login.php');
 endif;
 
+echo $_SESSION["id_usuario"];
 
-//Dados
-$id = $_SESSION['id_usuario'];
-$sql = "SELECT * FROM usuario WHERE idUsuario='$id'";
-$resultadoa= mysqli_query($connect,$sql);
-//transforma a variavel resultado em array 
-$dadoasds =mysqli_fetch_array($resultadoa);
+$url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $_SESSION["id_usuario"];
 
-echo $dadoasds['nomUsuario'];
+$usuario = (array)json_decode(file_get_contents($url));
 //fechando a conexão depois de armazenar os dados
 ?>
 
@@ -25,11 +20,15 @@ echo $dadoasds['nomUsuario'];
 <article class="row">
     <div class="col s12 m6 push-m3 z-depth-5">
         <?php
+
+        echo $usuario["nomusuario"];
+        /*
         $sql="SELECT * FROM historia";
         $resultado= mysqli_query($connect,$sql);
         
         if (mysqli_num_rows($resultado)>0):
             while($dados =mysqli_fetch_array($resultado)):	
+            
                 ?>
                 <div class="historia-preview">
                     <header class="title">
@@ -44,7 +43,7 @@ echo $dadoasds['nomUsuario'];
                     <?php echo $dados['dscSinopseHist'];?>
                 </div>
             <?php endwhile; 
-        endif;
+        endif;*/
         ?>
     </div>
 </article>
