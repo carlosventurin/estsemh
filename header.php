@@ -14,7 +14,7 @@
 <body>
     <nav>
         <div class="nav-wrapper light-green lighten-3" id="menus">
-            <a href="index.php" class="brand-logo"><img src="imagem/logo.png" class="logo" alt="Home"></a>
+            <a href="index.php" class="brand-logo black-text"><img src="imagem/logo.png" class="logo" alt="Home">Estórias sem H</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
                     <a href="cadastro.php" class="black-text">Cadastro</a>
