@@ -12,7 +12,7 @@ $story = (array)json_decode(file_get_contents($url));
     <div class="col s12 m6 push-m3 z-depth-5">
         <?php
             echo "<b><h5>".$story['nomhist']."</h5></b><br>";
-            echo $story['dsccorpohist'] . "<br>";
+            echo str_replace("\n", "<br>", $story['dsccorpohist']) . "<br>";
             echo "<hr>";
         ?>
     </div>
