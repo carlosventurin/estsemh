@@ -1,6 +1,6 @@
 <?php include_once "header.php"; ?>
 <article class="row">
-    <div class="col s12 m6 push-m3 z-depth-5">
+    <div class="col s12 m6 push-m3 z-depth-5" id="cadastr">
         <h1>Cadastro</h1>
         <form>
             <label for="username">Usuário:</label>

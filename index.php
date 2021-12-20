@@ -18,7 +18,7 @@ $usuario = (array)json_decode(file_get_contents($url));
 
 <!-- Prévia da história criada por um usuário -->
 <article class="row">
-    <div class="col s12 m6 push-m3 z-depth-5">
+    <div class="col s12 m6 push-m3 z-depth-5" id="ind">
         <?php
 
         echo $usuario["nomusuario"];

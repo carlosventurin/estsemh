@@ -43,7 +43,7 @@ if(!empty($erros)):
 endif;
 ?>
 <div class="row">
-	<div class="col s12 m6 push-m3 z-depth-5">
+	<div class="col s12 m6 push-m3 z-depth-5" id="log">
 		<h1>Login</h1>
 		<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 			Login: <input type="text" name="login"><br>
