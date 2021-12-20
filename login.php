@@ -1,6 +1,5 @@
 <?php 
 include_once "header.php";
-include_once 'dbconnect.php';
 //iniciar a sessão
 session_start();
 
