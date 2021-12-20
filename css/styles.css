@@ -14,3 +14,14 @@ div {
 #menus {
     border-radius: 0px;
 }
+
+#sobren {
+    text-align: justify;
+}
+
+#sobren, #cadastr, #consult, #ind, #log {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-bottom: 40px;
+}

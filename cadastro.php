@@ -38,7 +38,7 @@ if (isset($_POST['btn-cadastrar'])) {
 
 ?>
 <article class="row">
-    <div class="col s12 m6 push-m3 z-depth-5">
+    <div class="col s12 m6 push-m3 z-depth-5" id="cadastr">
         <h1>Cadastro</h1>
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
             <label for="username">Usuário:</label>

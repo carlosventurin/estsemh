@@ -3,7 +3,7 @@ include_once "header.php";
 ?>
 <!-- Tabela com dados de usuários -->
 <article class="row">
-    <div class="col s12 m6 push-m3 z-depth-5">
+    <div class="col s12 m6 push-m3 z-depth-5" id="consult">
         <h1>Usuários</h1>
         <table class="centered striped responsive-table">
             <tr>
