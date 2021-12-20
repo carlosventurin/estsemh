@@ -25,7 +25,7 @@ $stories = (array)json_decode(file_get_contents($url));
         <?php
 
             foreach ($stories["data"] as $story){
-                echo "<a href='/historia.php?id=$story->idhist'><b><h5>$story->nomhist</h5></b><br></a>";
+                echo "<a href='./historia.php?id=$story->idhist'><b><h5>$story->nomhist</h5></b><br></a>";
                 echo "$story->dscsinopsehist<br>";
                 echo "<hr>";
             }
