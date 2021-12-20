@@ -24,33 +24,11 @@ $stories = (array)json_decode(file_get_contents($url));
     <div class="col s12 m6 push-m3 z-depth-5">
         <?php
 
-        foreach ($stories["data"] as $story){
-            echo "Ator: " . $story->nomhist . "<br>";
-            echo "<hr>";
-        }
-
-        /*
-        $sql="SELECT * FROM historia";
-        $resultado= mysqli_query($connect,$sql);
-        
-        if (mysqli_num_rows($resultado)>0):
-            while($dados =mysqli_fetch_array($resultado)):	
-            
-                ?>
-                <div class="historia-preview">
-                    <header class="title">
-                        <?php echo $dados['nomHist'];?> | <?php 
-                        $sql="SELECT * FROM usuario WHERE idUsuario = " . $dados['idUsuario'] . ";";
-                        $resultadoUsuario = mysqli_query($connect,$sql);
-                        $usuario =mysqli_fetch_array($resultadoUsuario);
-                        echo $usuario['nomUsuario'];
-                        ?>
-                    </header>
-                    <hr>
-                    <?php echo $dados['dscSinopseHist'];?>
-                </div>
-            <?php endwhile; 
-        endif;*/
+            foreach ($stories["data"] as $story){
+                echo "<a href='/historia.php?id=$story->idhist'><b><h5>$story->nomhist</h5></b><br></a>";
+                echo "$story->dscsinopsehist<br>";
+                echo "<hr>";
+            }
         ?>
     </div>
 </article>
