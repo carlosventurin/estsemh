@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estórias sem H - Home</title>
+    <title>Estórias sem H</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,10 @@
                     <a href="cadastro.php" class="black-text">Cadastro</a>
                 </li>
                 <li>
-                    <a href="consulta.php" class="black-text">Consulta</a>
+                    <a href="generos.php" class="black-text">Gêneros</a>
+                </li>
+                <li>
+                    <a href="classif.php" class="black-text">Classificações Indicativas</a>
                 </li>
                 <li>
                     <a href="login.php" class="black-text">Sair</a>
