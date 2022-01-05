@@ -25,6 +25,7 @@ $stories = (array)json_decode(file_get_contents($url));
 <!-- Prévia da história criada por um usuário -->
 <article class="row">
     <div class="col s12 m6 push-m3 z-depth-5" id="ind">
+        <h1>Histórias</h1>
         <?php
             foreach ($stories["data"] as $story){
                 echo "<a href='./historia.php?id=$story->idhist'><b><h5>$story->nomhist</h5></b><hr></a><br>";

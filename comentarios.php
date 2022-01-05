@@ -7,6 +7,8 @@ $comments = (array)json_decode(file_get_contents($url));
 
 <article class="row">
     <div class="col s12 m6 push-m3 z-depth-5">
+        <h1>Comentários</h1>
+
         <a href="/comentar.php">
 		    <button class="waves-effect waves-light btn">Comentar</button>
         </a>

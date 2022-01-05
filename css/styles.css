@@ -3,7 +3,7 @@
 }
 
 footer {
-    position:relative;
+    position:fixed;
     bottom: 0px;
 }
 
@@ -19,7 +19,7 @@ div {
     text-align: justify;
 }
 
-#sobren, #cadastr, #consult, #ind, #log {
+#sobren, #cadastr, #consult, #ind, #log, #vishist, #comentar {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

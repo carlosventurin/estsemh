@@ -41,7 +41,7 @@ if (isset($_POST['btn-comentar'])) {
             <label for="corpo">Comentário:</label>
             <input type="text" name="corpo"></input>
             <br>
-            <input type="submit" name="btn-comentar" value="Cadastrar" id="botao" class="waves-effect waves-light btn">
+            <input type="submit" name="btn-comentar" value="Enviar" id="botao" class="waves-effect waves-light btn">
         </form>
     </div>
 </article>
