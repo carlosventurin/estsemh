@@ -19,7 +19,7 @@ div {
     text-align: justify;
 }
 
-#sobren, #cadastr, #consult, #ind, #log, #vishist, #comentar {
+#sobren, #cadastr, #consult, #ind, #log, #vishist, #comentar, #indic {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
