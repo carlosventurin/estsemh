@@ -21,6 +21,9 @@
                     <a href="cadastro.php" class="black-text">Cadastro</a>
                 </li>
                 <li>
+                    <a href="write.php" class="black-text">Escrever</a>
+                </li>
+                <li>
                     <a href="generos.php" class="black-text">Gêneros</a>
                 </li>
                 <li>
@@ -32,6 +35,16 @@
                 <li>
                     <a href="sobre.php" class="black-text">Sobre</a>
                 </li>
+                <?php
+                session_start();
+
+                if (isset($_SESSION['logado'])) {
+                    $url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $_SESSION["id_usuario"];
+                    $usuario = (array)json_decode(file_get_contents($url));
+
+                    echo "<li><a href='usuario.php?id_user=". $usuario['idusuario'] ."' class='black-text'> " . $usuario['nomusuario'] . "</a></li>";
+                }
+                ?>
             </ul>
         </div>
     </nav>

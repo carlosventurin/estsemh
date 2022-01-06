@@ -16,7 +16,7 @@ $comments = (array)json_decode(file_get_contents($url));
         <hr>
         <?php
             foreach ($comments["data"] as $comment){
-                echo "<p><img src='$comment->linkfotousuario' width=50 heigth=50 align='left'><b>$comment->nomusuario</b><p>";
+                echo "<p><img src='$comment->linkfotousuario' width=50 heigth=50 align='left'><a href='usuario.php?id_user=$comment->idusuario'><b>$comment->nomusuario</b></a><p>";
                 echo "$comment->dsccorpocoment<hr>";
             }
         ?>

@@ -8,9 +8,6 @@ if (!isset($_SESSION['logado'])):
 	header('Location: login.php');
 endif;
 
-$url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $_SESSION["id_usuario"];
-$usuario = (array)json_decode(file_get_contents($url));
-
 $url="https://estorias-sem-h-crud.herokuapp.com/stories/get_stories.php";
 
 if (isset($_GET['gender'])):
