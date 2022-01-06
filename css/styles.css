@@ -15,7 +15,7 @@ body {
 
 /*Altera a cor de fundo e as sombras da classe "header"*/
 .header {
-    background-color: rgb(163, 235, 235);
+    background-color: #c5e1a5;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
@@ -27,7 +27,7 @@ body {
 
 /*Altera o alinhamento e a cor de fundo da classe "header_content"*/
 .header_content {
-    background-color: rgb(0, 124, 124);
+    background-color: #c5e1a5;
     /* box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12); */
     text-align: center;
 }
@@ -57,7 +57,7 @@ li a {
 
 /*Altera a cor da lista quando o cursor é passado sobre ela*/
 li:hover {
-    background-color: rgb(0, 200, 200);
+    background-color: #9fb486;
 }
 
 /*Altera a largura, altura, preenchimento, disposição, plano de fundo e alinhamento da classe "body-content"*/
