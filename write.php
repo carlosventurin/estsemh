@@ -1,4 +1,6 @@
-<?php include_once "header.php"; 
+<?php 
+include_once "header.php";
+include_once "utils.php"; 
 
 session_start();
 
@@ -14,8 +16,6 @@ if (isset($_POST['btn-enviar'])) {
     $sinopse = htmlentities($_POST['sinopse']);
     $corpo = htmlentities($_POST['corpo']);
 
-	$url="https://estorias-sem-h-crud.herokuapp.com/stories/create_story.php";
-
     $data = array(
         'titulo' => $title, 
         'sinopse' => $sinopse, 
@@ -25,20 +25,9 @@ if (isset($_POST['btn-enviar'])) {
         'idcapa' => 3,
     );
 
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
-            'content' => http_build_query($data)
-        )
-    );
-    $context  = stream_context_create($options);
+    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/stories/create_story.php", $data);
 
-    $resultado = (array)json_decode(file_get_contents($url, false, $context));
-    
     if ($resultado["message"] == 'Story created.') {
-        $url="https://estorias-sem-h-crud.herokuapp.com/generohists/create_generohist.php";
-
         $id = $resultado["id"];
 
         $data = array(
@@ -46,17 +35,7 @@ if (isset($_POST['btn-enviar'])) {
             'genero' => $password, 
         );
     
-        $options = array(
-            'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method'  => 'POST',
-                'content' => http_build_query($data)
-            )
-        );
-
-        $context  = stream_context_create($options);
-    
-        $resultado = (array)json_decode(file_get_contents($url, false, $context));
+        $resultado = post("https://estorias-sem-h-crud.herokuapp.com/generohists/create_generohist.php", $data);
 
         header('Location: historia.php?id=' . strval($id));
     } else {

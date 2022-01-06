@@ -1,5 +1,6 @@
 <?php 
 include_once "header.php";
+include_once "utils.php";
 
 session_start();
 
@@ -14,7 +15,7 @@ if (isset($_GET['gender'])):
     $url = $url . "?genero=" . $_GET['gender'];
 endif;
 
-$stories = (array)json_decode(file_get_contents($url));
+$stories = consultar($url);
 
 //fechando a conexão depois de armazenar os dados
 ?>

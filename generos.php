@@ -1,9 +1,9 @@
 <?php 
 include_once "header.php";
+include_once "utils.php";
 
 $url="https://estorias-sem-h-crud.herokuapp.com/genders/get_genders.php";
-$genders = (array)json_decode(file_get_contents($url));
-
+$genders = consultar($url);
 
 ?>
 <!-- Tabela com dados de usuários -->

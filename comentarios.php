@@ -2,7 +2,7 @@
 include_once "header.php";
 
 $url="http://estorias-sem-h-crud.herokuapp.com/comments/get_comments.php?id_story=" . $_GET["id_story"];
-$comments = (array)json_decode(file_get_contents($url));
+$comments = consultar($url);
 ?>
 
 <article class="row">

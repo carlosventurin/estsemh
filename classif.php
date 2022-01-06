@@ -2,7 +2,7 @@
 include_once "header.php";
 
 $url="https://estorias-sem-h-crud.herokuapp.com/classificacoes/get_classificacoes.php";
-$classif = (array)json_decode(file_get_contents($url));
+$classif = consultar($url);
 
 ?>
 

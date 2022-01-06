@@ -17,30 +17,29 @@
         <div class="nav-wrapper light-green lighten-3" id="menus">
             <a href="index.php" class="brand-logo black-text"><i class="material-icons"><img src="imagem/logo.png" class="logo" alt="Home"> Estórias sem H</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href="cadastro.php" class="black-text">Cadastro</a>
-                </li>
-                <li>
-                    <a href="write.php" class="black-text">Escrever</a>
-                </li>
-                <li>
-                    <a href="generos.php" class="black-text">Gêneros</a>
-                </li>
-                <li>
-                    <a href="classif.php" class="black-text">Classificações Indicativas</a>
-                </li>
-                <li>
-                    <a href="login.php" class="black-text">Sair</a>
-                </li>
-                <li>
-                    <a href="sobre.php" class="black-text">Sobre</a>
-                </li>
                 <?php
                 session_start();
+                include_once 'utils.php';
 
                 if (isset($_SESSION['logado'])) {
                     $url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $_SESSION["id_usuario"];
-                    $usuario = (array)json_decode(file_get_contents($url));
+                    $usuario = consultar($url);
+
+                    echo '<li>
+                    <a href="write.php" class="black-text">Escrever</a>
+                    </li>
+                    <li>
+                        <a href="generos.php" class="black-text">Gêneros</a>
+                    </li>
+                    <li>
+                        <a href="classif.php" class="black-text">Classificações Indicativas</a>
+                    </li>
+                    <li>
+                        <a href="login.php" class="black-text">Sair</a>
+                    </li>
+                    <li>
+                        <a href="sobre.php" class="black-text">Sobre</a>
+                    </li>';
 
                     echo "<li><a href='usuario.php?id_user=". $usuario['idusuario'] ."' class='black-text'> " . $usuario['nomusuario'] . "</a></li>";
                 }

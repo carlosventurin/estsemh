@@ -1,4 +1,6 @@
-<?php include_once "header.php"; 
+<?php 
+include_once "header.php"; 
+include_once "utils.php"; 
 
 session_start();
 
@@ -10,24 +12,13 @@ if (isset($_POST['btn-comentar'])) {
 	$id_usuario = $_SESSION["id_usuario"];
     $id_hist = $_SESSION["id_story"];
 
-	$url = "https://estorias-sem-h-crud.herokuapp.com/comments/create_comment.php";
-
     $data = array(
         'comment' => $comment, 
         'idusuario' => $id_usuario, 
         'idhist' => $id_hist
     );
 
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
-            'content' => http_build_query($data)
-        )
-    );
-    $context  = stream_context_create($options);
-
-    $resultado = (array)json_decode(file_get_contents($url, false, $context));
+    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/comments/create_comment.php", $data);
     
     header('Location: comentarios.php?id_story=' . $id_hist);	
 }
