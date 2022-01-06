@@ -2,25 +2,50 @@
 
 session_start();
 
-if (isset($_POST['btn-comentar'])) {
+if (isset($_POST['btn-enviar'])) {
 	//echo "Clicou";
+
 	$erros = array();
 	//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
-	$username = htmlspecialchars($_POST['username']);
-    $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);
-	$password_repete = htmlspecialchars($_POST['rpassword']);
-	$url="https://estorias-sem-h-crud.herokuapp.com/register.php";
+	$title = htmlspecialchars($_POST['title']);
+    $idusuario = $_SESSION["id_usuario"];
+    $gender = htmlentities($_POST['gender']);
+    $classif = htmlentities($_POST['classif']);
+    $sinopse = htmlentities($_POST['sinopse']);
+    $corpo = htmlentities($_POST['corpo']);
 
-    if ($password !== $password_repete) {
-        $erros[]="<li> Senhas não batem.</li>";
-    } else {
+	$url="https://estorias-sem-h-crud.herokuapp.com/stories/create_story.php";
+
+    $data = array(
+        'titulo' => $title, 
+        'sinopse' => $sinopse, 
+        'corpo' => $corpo,
+        'idusuario' => (string)$idusuario,
+        'nomclassificacao' => $classif,
+        'idcapa' => 3,
+    );
+
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $context  = stream_context_create($options);
+
+    $resultado = (array)json_decode(file_get_contents($url, false, $context));
+    
+    if ($resultado["message"] == 'Story created.') {
+        $url="https://estorias-sem-h-crud.herokuapp.com/generohists/create_generohist.php";
+
+        $id = $resultado["id"];
+
         $data = array(
-            'newLogin' => $email, 
-            'newPassword' => $password, 
-            'newName' => $username
+            'idhist' => $id, 
+            'genero' => $password, 
         );
-
+    
         $options = array(
             'http' => array(
                 'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -28,17 +53,14 @@ if (isset($_POST['btn-comentar'])) {
                 'content' => http_build_query($data)
             )
         );
-        $context  = stream_context_create($options);
 
+        $context  = stream_context_create($options);
+    
         $resultado = (array)json_decode(file_get_contents($url, false, $context));
 
-
-        
-        if ($resultado["success"] == 1) {    
-            header('Location: login.php');	
-        } else {
-            $erros[]="<li>" . $resultado["error"] . ".</li>";
-        }
+        header('Location: historia.php?id=' . strval($id));
+    } else {
+        $erros[]="<li>" . $resultado["error"] . ".</li>";
     }
 }
 
@@ -49,13 +71,7 @@ $url="https://estorias-sem-h-crud.herokuapp.com/genders/get_genders.php";
 $genders = (array)json_decode(file_get_contents($url));
 
 ?>
-<!-- <script>
-    $(document).ready(function() {
-    $('select').formSelect();
-    // Old way
-    // $('select').material_select();
-});
-</script> -->
+
 <article class="row">
     <div class="col s12 m6 push-m3 z-depth-5" id="comentar">
         <h1>Escrever História</h1>
@@ -81,10 +97,13 @@ $genders = (array)json_decode(file_get_contents($url));
                 ?>
             </select>
             <br>
-            <label for="corpo">Texto</label>
-            <textarea value="corpo" name="txtArea" class="materialize-textarea" style="height: 200px;"></textarea>
+            <label for="sinopse">Sinopse:</label>
+            <input type="text" name="sinopse" class="materialize-textarea"></input>
             <br>
-            <input type="submit" name="btn-comentar" value="Cadastrar" id="botao" class="waves-effect waves-light btn">
+            <label for="corpo">Texto</label>
+            <textarea value="corpo" name="corpo" class="materialize-textarea" style="height: 200px;"></textarea>
+            <br>
+            <input type="submit" name="btn-enviar" value="Cadastrar" id="botao" class="waves-effect waves-light btn">
         </form>
     </div>
 </article>

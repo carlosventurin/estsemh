@@ -26,6 +26,14 @@ $user = (array)json_decode(file_get_contents($url));
         <a href="/comentarios.php?id_story=<?php echo $story["idhist"] ?>">
 		    <button class="waves-effect waves-light btn"> Comentários </button>
         </a>
+
+        <?php
+            if ($story["idusuario"] == $_SESSION['id_usuario']) {
+                echo "<a href='/excluir.php?id_story=".$story["idhist"]."'>";
+                echo "<button class='waves-effect waves-light btn red'> Excluir </button>";
+                echo "</a>";
+            }
+        ?>
     </div>
 </article>
 
