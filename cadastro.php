@@ -13,7 +13,7 @@ if (isset($_POST['btn-cadastrar'])) {
     if ($password !== $password_repete) {
         $erros[]="<li> Senhas não batem.</li>";
     } else {
-        $data = array('newLogin' => $email, 'newPassword' => $password, 'newName' => $username, 'newPhoto' => $file_contents);
+        //$data = array('newLogin' => $email, 'newPassword' => $password, 'newName' => $username, 'newPhoto' => $file_contents);
 
         $data = ""; 
         $boundary = "---------------------".substr(md5(rand(0,32000)), 0, 10); 
@@ -61,7 +61,13 @@ if (isset($_POST['btn-cadastrar'])) {
 <article class="row">
     <div class="col s12 m6 push-m3 z-depth-5" id="cadastr">
         <h1>Cadastro</h1>
-        <?php echo var_dump($erros)?>
+        <?php 
+        if(!empty($erros)):
+			foreach($erros as $erro):
+				echo $erro;
+			endforeach;
+		endif;
+        ?>
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
             <label for="newName">Usuário:</label>
             <input type="text" name="newName">
