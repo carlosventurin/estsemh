@@ -10,22 +10,22 @@ $story = (array)json_decode(file_get_contents($url));
 
 $url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $story["idusuario"];
 $user = (array)json_decode(file_get_contents($url));
-
 ?>
 
 <article class="row">
-    <div class="col s12 m6 push-m3 z-depth-5 center-align" id="vishist">
+    <div class="col s12 m6 push-m3 z-depth-5" id="vishist">
         <?php
-            echo "<b><h5>".$story['nomhist']."</h5></b>";
+            echo "<b class='center-align'><h5>".$story['nomhist']."</h5></b>";
             echo "<i>Autor: <a href='usuario.php?id_user=" . $user['idusuario'] . "'>". $user['nomusuario'] . "</a></i><br><br>";
             echo str_replace("\n", "<br>", $story['dsccorpohist']) . "<br>";
         ?>
 
         <br>
 
-        <a href="/comentarios.php?id_story=<?php echo $story["idhist"] ?>">
-		    <button class="waves-effect waves-light btn"> Comentários </button>
-        </a>
+        <form action="/comentarios.php?id_story=<?php echo $story["idhist"] ?>">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Comentários
+            </button>
+        </form>
 
         <?php
             if ($story["idusuario"] == $_SESSION['id_usuario']) {

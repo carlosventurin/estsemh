@@ -14,12 +14,28 @@ $comments = consultar($url);
         </a>
 
         <hr>
+
+        <div class="col s11">
         <?php
             foreach ($comments["data"] as $comment){
-                echo "<p><img src='$comment->linkfotousuario' width=50 heigth=50 align='left'><a href='usuario.php?id_user=$comment->idusuario'><b>$comment->nomusuario</b></a><p>";
-                echo "$comment->dsccorpocoment<hr>";
+                echo "
+                <div class='row'>
+                    <div class='col'>
+                        <img src='$comment->linkfotousuario' alt='Foto de perfil de $comment->nomusuario' class='responsive-img' width=50 height=50>
+                    </div>
+                    <div class='col s10'>
+                        <span class='black-text'>
+                            <b><a href='usuario.php?id_user=$comment->idusuario'>$comment->nomusuario</b>
+                        </span>
+                        <br>
+                        <span class='black-text'>
+                            $comment->dsccorpocoment
+                        </span>
+                    </div>
+                </div>";
             }
         ?>
+        </div>
     </div>
 </article>
 
