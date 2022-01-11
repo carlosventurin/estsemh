@@ -13,6 +13,8 @@ $url="https://estorias-sem-h-crud.herokuapp.com/stories/get_stories.php";
 
 if (isset($_GET['gender'])):
     $url = $url . "?genero=" . $_GET['gender'];
+elseif (isset($_GET['classificacao'])):
+    $url = $url . "?classificacao='" .  urldecode($_GET['classificacao']) . "'";
 endif;
 
 $stories = consultar($url);
