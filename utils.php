@@ -18,7 +18,7 @@ function post($url, $data) {
     return (array)json_decode(file_get_contents($url, false, $context));
 }
 
-function entrar($login, $senha, $erros) {
+function entrar($login, $senha) {
     $url="https://estorias-sem-h-crud.herokuapp.com/login.php";
 
     $opts = array(
