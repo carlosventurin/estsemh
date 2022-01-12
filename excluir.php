@@ -18,17 +18,29 @@ if (isset($_GET['id_story'])) {
 
     header('Location: index.php');
 } else if (isset($_POST['id_gender'])) {
-    $id_hist = $_POST['id_gender'];
+    $id_gen = $_POST['id_gender'];
 
     $url = "https://estorias-sem-h-crud.herokuapp.com/genders/delete_gender.php";
 
     $data = array(
-        'id' => $id_hist
+        'id' => $id_gen
     );
 
     $resultado = post($url, $data);
 
     header('Location: generos.php');	
+} else if (isset($_POST['id_classif'])) {
+    $id_classif = $_POST['id_classif'];
+
+    $url = "https://estorias-sem-h-crud.herokuapp.com/classificacoes/delete_classificacao.php";
+
+    $data = array(
+        'id' => $id_classif
+    );
+
+    $resultado = post($url, $data);
+
+    header('Location: classif.php');	
 }
 
 ?>
