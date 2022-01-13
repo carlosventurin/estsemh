@@ -1,15 +1,16 @@
 <?php 
 include_once "header.php";
+include_once "utils.php";
 
 session_start();
 
 $_SESSION['id_story'] = $_GET["id"];
 
 $url="https://estorias-sem-h-crud.herokuapp.com/stories/get_story.php?id=" . $_GET["id"];
-$story = (array)json_decode(file_get_contents($url));
+$story = consultar($url);
 
 $url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $story["idusuario"];
-$user = (array)json_decode(file_get_contents($url));
+$user = consultar($url);
 ?>
 
 <article class="row">
@@ -22,10 +23,9 @@ $user = (array)json_decode(file_get_contents($url));
 
         <br>
 
-        <form action="/comentarios.php?id_story=<?php echo $story["idhist"] ?>">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Comentários
-            </button>
-        </form>
+        <a href="comentarios.php?id_story=<?php echo $story["idhist"] ?>">
+            <button class="btn waves-effect waves-light">Comentários</button>
+        </a>
 
         <?php
             if ($story["idusuario"] == $_SESSION['id_usuario']) {
