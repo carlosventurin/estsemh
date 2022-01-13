@@ -6,13 +6,18 @@ session_start();
 
 $usuario = consultar("/users/get_user.php?id=" . $_GET["id_user"]);
 $stories = consultar("/stories/get_stories.php?id_user=" . $_GET["id_user"]);
+
+$filename = null;
+
+$file_extention = explode("/",explode(";", $usuario['linkfotousuario'])[0])[1];
 ?>
 
 <article class="row">
     <div class="col s12 m6 push-m3 z-depth-5" id="vishist">
-        <?php
-            echo "<p><b><h1>".$usuario['nomusuario']."</h1></b><img src='".$usuario['linkfotousuario']."' width=200 heigth=200 align='center'><p>";
-        ?>
+        
+        <p><b><h1><?php echo $usuario['nomusuario'] ?></h1></b><img src="<?php echo $usuario['linkfotousuario'] ?>" width=200 heigth=200 align='center'><p>
+        <!-- donwload image -->
+        <a href="<?php echo $usuario['linkfotousuario'] ?>" download="<?php echo $usuario['nomusuario'] . ".". $file_extention?>"><i class="material-icons">file_download</i></a>
 
         <br>
 
