@@ -41,6 +41,18 @@ if (isset($_GET['id_story'])) {
     $resultado = post($url, $data);
 
     header('Location: classif.php');	
+} else if (isset($_POST['id_comment'])) {
+    $id_comment = $_POST['id_comment'];
+
+    $url = "/comments/delete_comment.php";
+
+    $data = array(
+        'id' => $id_comment
+    );
+
+    $resultado = post($url, $data);
+
+    header('Location: comentarios.php?id_story=' . $_POST['id_hist']);		
 }
 
 ?>

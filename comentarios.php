@@ -26,7 +26,7 @@ $comments = consultar($url);
                     
                     <td>    
                         <span class='black-text'>
-                            <b><a href='usuario.php?id_user=<?php echo $comment->idusuario?>'><?php echo $comment->nomusuario ?></b>
+                            <b><a href='usuario.php?id_user=<?php echo $comment->idusuario ?>'><?php echo $comment->nomusuario ?></b>
                         </span>
                         <br>
                         <span class='black-text'>
@@ -38,17 +38,18 @@ $comments = consultar($url);
                     <?php
                     if ($comment->idusuario == $_SESSION['id_usuario']) {
                     ?>
-                        <td><a href="editar_classificacao.php?id_classif=<?php echo $indicacao->idclassificacao;?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                        <td><a href="#modal<?php echo $indicacao->idclassificacao;?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
+                        <td><a href="editar_comentario.php?id_comment=<?php echo $comment->idcoment;?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
+                        <td><a href="#modal<?php echo $comment->idcoment;?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
                         <!-- Modal Structure -->
-                        <div id="modal<?php echo $indicacao->idclassificacao;?>" class="modal">
+                        <div id="modal<?php echo $comment->idcoment;?>" class="modal">
                             <div class="modal-content">
                                 <h3>Atenção!</h3>
-                                <p>Deseja excluir essa classificação?</p>
+                                <p>Deseja excluir esse comentário?</p>
                             </div>
                             <div class="modal-footer">
                                 <form action="excluir.php" method="POST">
-                                    <input type="hidden" name="id_classif" value="<?php echo $indicacao->idclassificacao;?>">
+                                    <input type="hidden" name="id_comment" value="<?php echo $comment->idcoment;?>">
+                                    <input type="hidden" name="id_hist" value="<?php echo $_GET["id_story"]?>">
                                     <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
                                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
                                 </form>

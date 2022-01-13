@@ -39,9 +39,9 @@
                     <li>
                         <a href="sobre.php" class="black-text">Sobre</a>
                     </li>
-                    <li><a href='usuario.php?id_user= <?php echo $usuario['idusuario']?>' class='black-text'><?php echo $usuario['nomusuario'] ?></a></li>
+                    <li><a href='usuario.php?id_user=<?php echo $usuario['idusuario']?>' class='black-text'><?php echo $usuario['nomusuario'] ?></a></li>
                     <li>
-                        <a href="login.php" class="black-text"><i class="material-icons">exit_to_app</i></a>
+                        <a href="logout.php" class="black-text"><i class="material-icons">exit_to_app</i></a>
                     </li>
                     <?php
                 }
