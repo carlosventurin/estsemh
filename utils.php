@@ -1,7 +1,9 @@
 <?php
 
+define("BASE_URL" ,"https://estorias-sem-h-crud.herokuapp.com");
+
 function consultar($url) {
-    return (array)json_decode(file_get_contents($url));
+    return (array)json_decode(file_get_contents(BASE_URL . $url));
 }
 
 function post($url, $data) {
@@ -15,11 +17,11 @@ function post($url, $data) {
 
     $context  = stream_context_create($options);
 
-    return (array)json_decode(file_get_contents($url, false, $context));
+    return (array)json_decode(file_get_contents(BASE_URL . $url, false, $context));
 }
 
 function entrar($login, $senha) {
-    $url="https://estorias-sem-h-crud.herokuapp.com/login.php";
+    $url = BASE_URL . "/login.php";
 
     $opts = array(
 		'http'=> array(

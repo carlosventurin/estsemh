@@ -3,7 +3,7 @@ include_once "header.php";
 
 session_start();
 
-$url="http://estorias-sem-h-crud.herokuapp.com/comments/get_comments.php?id_story=" . $_GET["id_story"];
+$url="/comments/get_comments.php?id_story=" . $_GET["id_story"];
 $comments = consultar($url);
 ?>
 

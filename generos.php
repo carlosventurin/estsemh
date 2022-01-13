@@ -2,7 +2,7 @@
 include_once "header.php";
 include_once "utils.php";
 
-$url="https://estorias-sem-h-crud.herokuapp.com/genders/get_genders.php";
+$url="/genders/get_genders.php";
 $genders = consultar($url);
 
 ?>

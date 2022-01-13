@@ -4,8 +4,8 @@ include_once "utils.php";
 
 session_start();
 
-$usuario = consultar("https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $_GET["id_user"]);
-$stories = consultar("https://estorias-sem-h-crud.herokuapp.com/stories/get_stories.php?id_user=" . $_GET["id_user"]);
+$usuario = consultar("/users/get_user.php?id=" . $_GET["id_user"]);
+$stories = consultar("/stories/get_stories.php?id_user=" . $_GET["id_user"]);
 ?>
 
 <article class="row">

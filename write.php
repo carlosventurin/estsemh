@@ -25,7 +25,7 @@ if (isset($_POST['btn-enviar'])) {
         'idcapa' => 3,
     );
 
-    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/stories/create_story.php", $data);
+    $resultado = post("/stories/create_story.php", $data);
 
     if ($resultado["message"] == 'Story created.') {
         $id = $resultado["id"];
@@ -35,7 +35,7 @@ if (isset($_POST['btn-enviar'])) {
             'genero' => $password, 
         );
     
-        $resultado = post("https://estorias-sem-h-crud.herokuapp.com/generohists/create_generohist.php", $data);
+        $resultado = post("/generohists/create_generohist.php", $data);
 
         header('Location: historia.php?id=' . strval($id));
     } else {
@@ -43,10 +43,10 @@ if (isset($_POST['btn-enviar'])) {
     }
 }
 
-$url="https://estorias-sem-h-crud.herokuapp.com/classificacoes/get_classificacoes.php";
+$url="/classificacoes/get_classificacoes.php";
 $classifs = (array)json_decode(file_get_contents($url));
 
-$url="https://estorias-sem-h-crud.herokuapp.com/genders/get_genders.php";
+$url="/genders/get_genders.php";
 $genders = (array)json_decode(file_get_contents($url));
 
 ?>

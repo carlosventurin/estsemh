@@ -14,7 +14,7 @@ if (isset($_POST['btn-classif'])) {
         'nome' => $classif, 
     );
 
-    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/classificacoes/create_classificacao.php", $data);
+    $resultado = post("/classificacoes/create_classificacao.php", $data);
     
     header('Location: classif.php');
 }

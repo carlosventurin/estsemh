@@ -6,10 +6,10 @@ session_start();
 
 $_SESSION['id_story'] = $_GET["id"];
 
-$url="https://estorias-sem-h-crud.herokuapp.com/stories/get_story.php?id=" . $_GET["id"];
+$url="/stories/get_story.php?id=" . $_GET["id"];
 $story = consultar($url);
 
-$url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $story["idusuario"];
+$url="/users/get_user.php?id=" . $story["idusuario"];
 $user = consultar($url);
 ?>
 

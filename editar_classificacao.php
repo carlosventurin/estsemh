@@ -4,7 +4,7 @@ include_once "utils.php";
 
 session_start();
 
-$classif_to_update = consultar("https://estorias-sem-h-crud.herokuapp.com/classificacoes/get_classificacao.php?id=" . $_GET["id_classif"]);
+$classif_to_update = consultar("/classificacoes/get_classificacao.php?id=" . $_GET["id_classif"]);
 
 if (isset($_POST['btn-classif'])) {
 	//echo "Clicou";
@@ -18,7 +18,7 @@ if (isset($_POST['btn-classif'])) {
         'nome' => $classif, 
     );
 
-    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/classificacoes/update_classificacao.php", $data);
+    $resultado = post("/classificacoes/update_classificacao.php", $data);
     
     header('Location: classif.php');	
 }

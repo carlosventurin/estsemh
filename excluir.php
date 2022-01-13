@@ -8,7 +8,7 @@ $erros = array();
 if (isset($_GET['id_story'])) {
     $id_hist = $_GET['id_story'];
 
-    $url = "https://estorias-sem-h-crud.herokuapp.com/stories/delete_story.php";
+    $url = "/stories/delete_story.php";
 
     $data = array(
         'id' => $id_hist
@@ -20,7 +20,7 @@ if (isset($_GET['id_story'])) {
 } else if (isset($_POST['id_gender'])) {
     $id_gen = $_POST['id_gender'];
 
-    $url = "https://estorias-sem-h-crud.herokuapp.com/genders/delete_gender.php";
+    $url = "/genders/delete_gender.php";
 
     $data = array(
         'id' => $id_gen
@@ -32,7 +32,7 @@ if (isset($_GET['id_story'])) {
 } else if (isset($_POST['id_classif'])) {
     $id_classif = $_POST['id_classif'];
 
-    $url = "https://estorias-sem-h-crud.herokuapp.com/classificacoes/delete_classificacao.php";
+    $url = "/classificacoes/delete_classificacao.php";
 
     $data = array(
         'id' => $id_classif

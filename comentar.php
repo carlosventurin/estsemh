@@ -18,7 +18,7 @@ if (isset($_POST['btn-comentar'])) {
         'idhist' => $id_hist
     );
 
-    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/comments/create_comment.php", $data);
+    $resultado = post("/comments/create_comment.php", $data);
     
     header('Location: comentarios.php?id_story=' . $id_hist);	
 }

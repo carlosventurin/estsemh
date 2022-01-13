@@ -23,7 +23,7 @@
                 include_once 'utils.php';
 
                 if (isset($_SESSION['logado'])) {
-                    $url="https://estorias-sem-h-crud.herokuapp.com/users/get_user.php?id=" . $_SESSION["id_usuario"];
+                    $url="/users/get_user.php?id=" . $_SESSION["id_usuario"];
                     $usuario = consultar($url);
 
                     ?>

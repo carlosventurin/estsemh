@@ -1,7 +1,7 @@
 <?php 
 include_once "header.php";
 
-$url="https://estorias-sem-h-crud.herokuapp.com/classificacoes/get_classificacoes.php";
+$url="/classificacoes/get_classificacoes.php";
 $classif = consultar($url);
 
 ?>

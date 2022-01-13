@@ -4,7 +4,7 @@ include_once "utils.php";
 
 session_start();
 
-$gender_to_update = consultar("https://estorias-sem-h-crud.herokuapp.com/genders/get_gender.php?id=" . $_GET["id_gender"]);
+$gender_to_update = consultar("/genders/get_gender.php?id=" . $_GET["id_gender"]);
 
 if (isset($_POST['btn-genero'])) {
 	//echo "Clicou";
@@ -18,7 +18,7 @@ if (isset($_POST['btn-genero'])) {
         'nome' => $genero, 
     );
 
-    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/genders/update_gender.php", $data);
+    $resultado = post("/genders/update_gender.php", $data);
     
     header('Location: generos.php');	
 }

@@ -14,7 +14,7 @@ if (isset($_POST['btn-genero'])) {
         'nome' => $genero, 
     );
 
-    $resultado = post("https://estorias-sem-h-crud.herokuapp.com/genders/create_gender.php", $data);
+    $resultado = post("/genders/create_gender.php", $data);
     
     header('Location: generos.php');	
 }

@@ -9,7 +9,7 @@ if (!isset($_SESSION['logado'])):
 	header('Location: login.php');
 endif;
 
-$url="https://estorias-sem-h-crud.herokuapp.com/stories/get_stories.php";
+$url="/stories/get_stories.php";
 
 if (isset($_GET['gender'])):
     $url = $url . "?genero=" . $_GET['gender'];

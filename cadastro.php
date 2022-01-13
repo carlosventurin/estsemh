@@ -8,7 +8,7 @@ if (isset($_POST['btn-cadastrar'])) {
 	//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
     $password = htmlspecialchars($_POST['newPassword']);
 	$password_repete = htmlspecialchars($_POST['rpassword']);
-	$url="http://estorias-sem-h-crud.herokuapp.com/register.php";
+	$url="/register.php";
 
     if ($password !== $password_repete) {
         $erros[]="<li> Senhas não batem.</li>";
