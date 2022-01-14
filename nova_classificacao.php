@@ -10,6 +10,8 @@ if (isset($_POST['btn-classif'])) {
 	//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
 	$classif = $_POST["classif"];
 
+    $classif = filter_var($classif, FILTER_SANITIZE_STRING);
+
     $data = array(
         'nome' => $classif, 
     );

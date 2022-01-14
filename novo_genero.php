@@ -10,6 +10,8 @@ if (isset($_POST['btn-genero'])) {
 	//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
 	$genero = $_POST["genero"];
 
+    $genero = filter_var($genero, FILTER_SANITIZE_STRING);
+
     $data = array(
         'nome' => $genero, 
     );

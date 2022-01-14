@@ -5,50 +5,47 @@ include_once "utils.php";
 session_start();
 
 if (isset($_POST['btn-enviar'])) {
-	//echo "Clicou";
 
 	$erros = array();
-	//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
-	$title = htmlspecialchars($_POST['title']);
-    $idusuario = $_SESSION["id_usuario"];
-    $gender = htmlentities($_POST['gender']);
-    $classif = htmlentities($_POST['classif']);
-    $sinopse = htmlentities($_POST['sinopse']);
-    $corpo = htmlentities($_POST['corpo']);
 
-    $data = array(
-        'titulo' => $title, 
-        'sinopse' => $sinopse, 
-        'corpo' => $corpo,
-        'idusuario' => (string)$idusuario,
-        'nomclassificacao' => $classif,
-        'idcapa' => 3,
-    );
-
-    $resultado = post("/stories/create_story.php", $data);
-
-    if ($resultado["message"] == 'Story created.') {
-        $id = $resultado["id"];
+    if (filter_var($_SESSION["id_usuario"], FILTER_VALIDATE_INT)) {
+        $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+        $idusuario = filter_var($_SESSION["id_usuario"], FILTER_SANITIZE_NUMBER_INT);
+        $gender = filter_var($_POST['gender'], FILTER_SANITIZE_STRING);
+        $classif = filter_var($_POST['classif'], FILTER_SANITIZE_STRING);
+        $sinopse = filter_var($_POST['sinopse'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+        $corpo = filter_var($_POST['corpo'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
         $data = array(
-            'idhist' => $id, 
-            'genero' => $password, 
+            'titulo' => $title, 
+            'sinopse' => $sinopse, 
+            'corpo' => $corpo,
+            'idusuario' => (string)$idusuario,
+            'nomclassificacao' => $classif,
+            'idcapa' => 3,
         );
-    
-        $resultado = post("/generohists/create_generohist.php", $data);
 
-        header('Location: historia.php?id=' . strval($id));
-    } else {
-        $erros[]="<li>" . $resultado["error"] . ".</li>";
+        $resultado = post("/stories/create_story.php", $data);
+
+        if ($resultado["message"] == 'Story created.') {
+            $id = $resultado["id"];
+
+            $data = array(
+                'id_story' => $id, 
+                'genero' => $gender, 
+            );
+        
+            $resultado = post("/generohists/create_generohist.php", $data);
+
+            header('Location: historia.php?id=' . strval($id));
+        } else {
+            $erros[]="<li>" . $resultado["error"] . ".</li>";
+        }
     }
 }
 
-$url="/classificacoes/get_classificacoes.php";
-$classifs = (array)json_decode(file_get_contents($url));
-
-$url="/genders/get_genders.php";
-$genders = (array)json_decode(file_get_contents($url));
-
+$classifs = consultar("/classificacoes/get_classificacoes.php");
+$genders = consultar("/genders/get_genders.php");
 ?>
 
 <article class="row">

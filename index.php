@@ -11,15 +11,13 @@ endif;
 
 $url="/stories/get_stories.php";
 
-if (isset($_GET['gender'])):
-    $url = $url . "?genero=" . $_GET['gender'];
-elseif (isset($_GET['classificacao'])):
-    $url = $url . "?classificacao='" .  urldecode($_GET['classificacao']) . "'";
-endif;
+if (isset($_GET['gender'])) {
+    $url = $url . "?genero=" . urldecode($_GET['gender']);
+} elseif (isset($_GET['classificacao'])) {
+    $url = $url . "?classificacao=".  urldecode($_GET['classificacao']);
+};
 
 $stories = consultar($url);
-
-//fechando a conexão depois de armazenar os dados
 ?>
 
 <!-- Prévia da história criada por um usuário -->
@@ -27,11 +25,15 @@ $stories = consultar($url);
     <div class="col s12 m6 push-m3 z-depth-5" id="ind">
         <h1>Histórias</h1>
         <?php
+        if (!empty($stories["data"])) {
             foreach ($stories["data"] as $story){
                 echo "<a href='./historia.php?id=$story->idhist'><b><h5>$story->nomhist</h5></b><hr></a><br>";
                 echo "<i>$story->classificacao</i><br>";
                 echo "<p>$story->dscsinopsehist</p><hr>";
             }
+        } else {
+            echo "<h3>Nenhuma história encontrada</h3>";
+        }
         ?>
     </div>
 </article>

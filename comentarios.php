@@ -11,7 +11,7 @@ $comments = consultar($url);
     <div class="col s12 m6 push-m3 z-depth-5">
         <h1>Comentários</h1>
 
-        <a href="/comentar.php">
+        <a href="/comentar.php?id_story=<?php echo $_GET["id_story"]?>">
 		    <button class="waves-effect waves-light btn">Comentar</button>
         </a>
 
@@ -65,7 +65,7 @@ $comments = consultar($url);
                 <?php
             }
         ?>
-        </div>
+        </table>
     </div>
 </article>
 

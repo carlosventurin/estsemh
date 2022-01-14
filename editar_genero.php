@@ -10,17 +10,22 @@ if (isset($_POST['btn-genero'])) {
 	//echo "Clicou";
 	$erros = array();
 
-    $idgenero = $_POST['idgenero'];
-    $genero = $_POST["genero"];
 
-    $data = array(
-        'id' => $idgenero,
-        'nome' => $genero, 
-    );
+    if (filter_var($_POST['idgenero'], FILTER_VALIDATE_INT)) {
+        $idgenero = filter_var($_POST['idgenero'], FILTER_SANITIZE_NUMBER_INT);
+        $genero = filter_var($_POST["genero"], FILTER_SANITIZE_STRING);
 
-    $resultado = post("/genders/update_gender.php", $data);
-    
-    header('Location: generos.php');	
+        $data = array(
+            'id' => $idgenero,
+            'nome' => $genero, 
+        );
+
+        $resultado = post("/genders/update_gender.php", $data);
+        
+        header('Location: generos.php');
+    }
+
+    	
 }
 ?>
 

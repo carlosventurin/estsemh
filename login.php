@@ -13,18 +13,21 @@ if (isset($_POST['btn-entrar'])) {
 	//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
 	$login = htmlspecialchars($_POST['login']);
 	$senha = htmlspecialchars($_POST['senha']);
-	
-	$resultado = entrar($login, $senha, $erros);
 
-	if ($resultado["success"] == 1) {
-		$_SESSION['logado'] = true;
-		$_SESSION['id_usuario'] = $resultado['idUsuario'];
+	if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+		$resultado = entrar($login, $senha, $erros);
 
-		header('Location: index.php');	
+		if ($resultado["success"] == 1) {
+			$_SESSION['logado'] = true;
+			$_SESSION['id_usuario'] = $resultado['idUsuario'];
+
+			header('Location: index.php');	
+		} else {
+			$erros[]="<li>" . $resultado["error"] . ".</li>";
+		}
 	} else {
-		$erros[]="<li>" . $resultado["error"] . ".</li>";
+		$erros[]="<li>Login inválido.</li>";
 	}
-
 }
 ?>
 <div class="row">

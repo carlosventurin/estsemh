@@ -11,20 +11,33 @@ if (isset($_POST['btn-classif'])) {
 	$erros = array();
 
     $idclassif = $_POST['idclassificacao'];
-    $classif = $_POST["classif"];
+    $classif = filter_var($_POST["classif"], FILTER_SANITIZE_STRING);
 
-    $data = array(
-        'id' => $idclassif,
-        'nome' => $classif, 
-    );
-
-    $resultado = post("/classificacoes/update_classificacao.php", $data);
+    if (filter_var($idclassif, FILTER_VALIDATE_INT)) {
+        $idclassif = filter_var($idclassif, FILTER_SANITIZE_NUMBER_INT);
+        
+        $data = array(
+            'id' => $idclassif,
+            'nome' => $classif, 
+        );
     
-    header('Location: classif.php');	
+        $resultado = post("/classificacoes/update_classificacao.php", $data);
+        
+        header('Location: classif.php');
+    } else {
+        $erros[] = "<li> ID deve ser um número inteiro </li>";
+    }
 }
 ?>
 
 <article class="row">
+    <?php
+		if(!empty($erros)):
+			foreach($erros as $erro):
+				echo $erro;
+			endforeach;
+		endif;
+    ?>
     <div class="col s12 m6 push-m3 z-depth-5" id="comentar">
         <h1>Editar Classificação</h1>
         <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">

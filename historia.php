@@ -4,8 +4,6 @@ include_once "utils.php";
 
 session_start();
 
-$_SESSION['id_story'] = $_GET["id"];
-
 $url="/stories/get_story.php?id=" . $_GET["id"];
 $story = consultar($url);
 

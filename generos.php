@@ -16,7 +16,7 @@ $genders = consultar($url);
                 foreach ($genders["data"] as $gender){
                     ?>
                     <tr>
-                        <td><a href='./?gender=<?php echo $gender->dscgenero?>'><b><h5><?php echo $gender->dscgenero?></h5></b></a></td>
+                        <td><a href='/index.php?gender=<?php echo $gender->dscgenero?>'><b><h5><?php echo $gender->dscgenero?></h5></b></a></td>
                         <td><a href="editar_genero.php?id_gender=<?php echo $gender->idgenero;?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
 
                         <td><a href="#modal<?php echo $gender->idgenero;?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
