@@ -5,19 +5,11 @@ include_once "utils.php";
 session_start();
 
 // se não existir a sessão logado
-if (!isset($_SESSION['logado'])):
+if (!isset($_SESSION['logado'])) {
 	header('Location: login.php');
-endif;
+}
 
-$url="/stories/get_stories.php";
-
-if (isset($_GET['gender'])) {
-    $url = $url . "?genero=" . urldecode($_GET['gender']);
-} elseif (isset($_GET['classificacao'])) {
-    $url = $url . "?classificacao=".  urldecode($_GET['classificacao']);
-};
-
-$stories = consultar($url);
+$stories = consultar("/stories/get_stories.php");
 ?>
 
 <!-- Prévia da história criada por um usuário -->

@@ -13,7 +13,7 @@ $classif = consultar($url);
             foreach ($classif["data"] as $indicacao) {
                 ?>
                 <tr>
-                    <td><a href= '/index.php?classificacao=<?php echo $indicacao->dscclassificacao ?>'><b><h5><?php echo $indicacao->dscclassificacao?></h5></b></a></td>
+                    <td><b><h5><?php echo $indicacao->dscclassificacao?></h5></b></td>
                     
                     <td><a href="editar_classificacao.php?id_classif=<?php echo $indicacao->idclassificacao;?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
                     <td><a href="#modal<?php echo $indicacao->idclassificacao;?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
