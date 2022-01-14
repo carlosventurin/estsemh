@@ -2,22 +2,24 @@
 
 include_once "utils.php";
 
-//echo "Clicou";
 $erros = array();
-//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
-if (isset($_GET['id_story'])) {
-    $id_hist = $_GET['id_story'];
+
+//Deletar história
+if (isset($_POST['id_story'])) {
+    $id_story = $_POST['id_story'];
 
     $url = "/stories/delete_story.php";
 
     $data = array(
-        'id' => $id_hist
+        'id' => $id_story
     );
 
     $resultado = post($url, $data);
 
     header('Location: index.php');
-} else if (isset($_POST['id_gender'])) {
+} 
+//Deletar gênero
+else if (isset($_POST['id_gender'])) {
     $id_gen = $_POST['id_gender'];
 
     $url = "/genders/delete_gender.php";
@@ -29,7 +31,9 @@ if (isset($_GET['id_story'])) {
     $resultado = post($url, $data);
 
     header('Location: generos.php');	
-} else if (isset($_POST['id_classif'])) {
+} 
+//Deletar classificação
+else if (isset($_POST['id_classif'])) {
     $id_classif = $_POST['id_classif'];
 
     $url = "/classificacoes/delete_classificacao.php";
@@ -41,7 +45,9 @@ if (isset($_GET['id_story'])) {
     $resultado = post($url, $data);
 
     header('Location: classif.php');	
-} else if (isset($_POST['id_comment'])) {
+} 
+//Deletar comentário
+else if (isset($_POST['id_comment'])) {
     $id_comment = $_POST['id_comment'];
 
     $url = "/comments/delete_comment.php";
@@ -53,6 +59,20 @@ if (isset($_GET['id_story'])) {
     $resultado = post($url, $data);
 
     header('Location: comentarios.php?id_story=' . $_POST['id_hist']);		
+} 
+//Deletar usuário
+else if (isset($_POST['id_user'])) {
+    $id_user = $_POST['id_user'];
+
+    $url = "/users/delete_user.php";
+
+    $data = array(
+        'id' => $id_user
+    );
+
+    $resultado = post($url, $data);
+
+    header('Location: logout.php');		
 }
 
 ?>

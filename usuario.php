@@ -7,8 +7,6 @@ session_start();
 $usuario = consultar("/users/get_user.php?id=" . $_GET["id_user"]);
 $stories = consultar("/stories/get_stories.php?id_user=" . $_GET["id_user"]);
 
-$filename = null;
-
 $file_extention = explode("/",explode(";", $usuario['linkfotousuario'])[0])[1];
 ?>
 
@@ -18,6 +16,30 @@ $file_extention = explode("/",explode(";", $usuario['linkfotousuario'])[0])[1];
         <p><b><h1><?php echo $usuario['nomusuario'] ?></h1></b><img src="<?php echo $usuario['linkfotousuario'] ?>" width=200 heigth=200 align='center'><p>
         <!-- donwload image -->
         <a href="<?php echo $usuario['linkfotousuario'] ?>" download="<?php echo $usuario['nomusuario'] . ".". $file_extention?>"><i class="material-icons">file_download</i></a>
+
+        <?php 
+        if ($usuario['idusuario'] == $_SESSION['id_usuario']) {
+            ?>
+                <td><a href="#modal<?php echo $usuario['idusuario']?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
+            
+                <!-- Modal Structure -->
+                <div id="modal<?php echo $usuario['idusuario']?>" class="modal">
+                    <div class="modal-content">
+                    <h3>Atenção!</h3>
+                    <p>Deseja excluir sua conta? As suas histórias também serão deletadas.</p>
+                    </div>
+                    <div class="modal-footer">
+                    
+                    <form action="excluir.php" method="POST">
+                        <input type="hidden" name="id_user" value="<?php echo $usuario['idusuario']?>">
+                        <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                    </form>
+                    </div>
+                </div>
+
+            <?php
+        }?>
 
         <br>
 
