@@ -2,3 +2,7 @@ Integrantes do Grupo:
 Carlos Eugênio Venturin Goldner
 Lélio Marcos Rangel Cunha
 Rodolfo Müller do Amaral
+
+O CRUD está na nuvem e pode ser acessado em https://estorias-sem-h-crud.herokuapp.com
+
+A criptografia escolhida foi MD5
