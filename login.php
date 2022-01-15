@@ -46,6 +46,8 @@ if (isset($_POST['btn-entrar'])) {
 			<button type="submit" name="btn-entrar" class="waves-effect waves-light btn"> Entrar </button>
 		</form>
 
+		<br>
+
 		<a href="cadastro.php"><button class="waves-effect waves-light btn red">Cadastre-se</button></a>
 	</div>
 </div>
